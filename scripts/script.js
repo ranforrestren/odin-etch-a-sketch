@@ -1,5 +1,15 @@
+let isMouseDown = false;
+
+document.addEventListener("mousedown", () => {
+  isMouseDown = true;
+})
+document.addEventListener("mouseup", () => {
+  isMouseDown = false;
+})
+
 const container = document.querySelector('.container');
 
+// Creates grid of squares and attaches mouseover listeners
 function makeGrid(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -11,9 +21,11 @@ function makeGrid(rows, cols) {
   }
 }
 
+// Changes color of square on mouseover
 function colorChange(e) {
-  console.log('Test');
-  e.target.style.background = 'blue';
+  if (isMouseDown == true) {
+    e.target.style.background = 'blue';
+  }
 }
 
 makeGrid(16, 16);
