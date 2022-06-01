@@ -1,3 +1,10 @@
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .container {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
