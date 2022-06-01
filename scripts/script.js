@@ -8,10 +8,27 @@ document.addEventListener("mouseup", () => {
   isMouseDown = false;
 })
 
-const container = document.querySelector('.container');
+// Form input for user input grid size
+const button = document.querySelector('.gridButton');
+button.addEventListener('click', inputSize);
+
+function inputSize() 
+{
+  let input = document.querySelector('#gridsize').value;
+  if (0 < input && input < 101) {
+    makeGrid(input, input);
+  }
+}
 
 // Creates grid of squares and attaches mouseover listeners
 function makeGrid(rows, cols) {
+  const container = document.querySelector('.container');
+
+  // Remove contents of grid before populating new grid
+  while (container.lastElementChild) {
+    container.removeChild(container.lastElementChild);
+  }
+
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
   for (let i = 0; i < rows * cols; i++) {

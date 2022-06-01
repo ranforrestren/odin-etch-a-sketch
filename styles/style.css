@@ -11,6 +11,7 @@
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   height: 800px;
   width: 800px;
+  padding: 20px 40px;
 }
 
 .gridBox {
